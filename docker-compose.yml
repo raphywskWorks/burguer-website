@@ -1,0 +1,55 @@
+version: '3.7'
+
+services:
+  # Serviço PHP
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php-container
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/var/www/html
+    networks:
+      - app-network
+    depends_on:
+      - mysql
+
+  # Serviço MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  # Serviço phpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin-container
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: rootpassword
+    networks:
+      - app-network
+
+# Volume para persistir os dados do MySQL
+volumes:
+  db_data:
+
+# Rede personalizada para os serviços
+networks:
+  app-network:
+    driver: bridge
