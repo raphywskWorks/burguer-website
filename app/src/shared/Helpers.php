@@ -10,4 +10,8 @@ class Helpers
 
         return 'home';
     }
+
+    public static function getAssets(): string {
+        return __DIR__ . '/../../assets';
+    }
 }
