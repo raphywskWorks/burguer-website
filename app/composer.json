@@ -1,0 +1,10 @@
+{
+  "name": "raphywsk-works/burguer-website",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {
+  }
+}

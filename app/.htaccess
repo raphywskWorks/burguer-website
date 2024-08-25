@@ -1,7 +1,7 @@
 RewriteEngine On
 
 # Bloqueia o acesso aos diretórios 'assets' e 'core'
-RewriteRule ^(assets|core)/ - [F,L]
+RewriteRule ^(assets|src)/ - [F,L]
 
 # Redireciona todas as requisições para index.php
 RewriteCond %{REQUEST_FILENAME} !-f

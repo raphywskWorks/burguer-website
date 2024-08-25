@@ -1,7 +1,11 @@
 <?php
-// Função para carregar a página com base na URL
-function loadPage($page) {
-    $path = __DIR__ . '/pages/' . $page . '.php';
+require_once __DIR__ . '/vendor/autoload.php';
+
+use App\shared\Helpers;
+
+function loadPage($page): void
+{
+    $path = __DIR__ . '/src/pages/' . $page . '.php';
     if (file_exists($path)) {
         include $path;
     } else {
@@ -9,8 +13,6 @@ function loadPage($page) {
     }
 }
 
-// Obtém a URL amigável, se existir
-$url = isset($_GET['page']) ? $_GET['page'] : 'home';
+$url = Helpers::getPageSlug();
 
-// Carrega a página apropriada
 loadPage($url);

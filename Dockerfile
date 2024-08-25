@@ -7,8 +7,11 @@ RUN a2enmod rewrite
 # Instale as extensões do PHP necessárias para o MySQL
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
+# Instale o Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 # Copie os arquivos do projeto para o diretório raiz do Apache
-COPY . /var/www/html/
+COPY app /var/www/html/
 
 # Copie o arquivo de configuração customizado para o Apache
 COPY servername.conf /etc/apache2/conf-available/servername.conf
