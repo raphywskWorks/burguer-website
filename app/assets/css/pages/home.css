@@ -1,16 +1,122 @@
-.c-content {
+.c-content__banner {
+    width: 100%;
+    min-height: 80vh;
+    background-image: url("../../images/pages/home/pattern.jpg");
+    background-position: center center;
+    background-size: auto;
+    background-repeat: repeat;
+    position: relative;
+    margin-bottom: 10vh;
+}
+
+.c-content__banner__inner {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 90vh;
+    width: 85%;
+    background-image: url("../../images/pages/home/banner-home.jpg");
+    background-position: left;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 16px 5%;
+}
+
+.c-content__banner__inner__menu {
+    width: 30%;
+    height: 50%;
+    padding: 42px 0;
+    background-color: rgba(251, 198, 92, .9);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-content__banner__inner__menu ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.c-content__banner__inner__menu ul a {
+    font-size: 42px;
+    font-weight: normal;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    transition: .3s;
+    text-shadow: 1px 1px 1px #000
+}
+
+.c-content__banner__inner__menu ul a:visited {
+    text-decoration: none;
+}
+
+.c-content__banner__inner__menu ul a:hover {
+    color: #D3312A;
+}
+
+.c-content__info {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    gap: 24px;
 }
 
-.c-content__banner {
-    width: 100%;
-    min-height: 100vh;
-    background-image: url("../../images/pages/home/banner-home.jpg");
-    background-position: center center;
-    background-size: cover;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    grid-template-rows: repeat(3, 1fr); /* 3 linhas */
+    gap: 10px;
+    width: 85%;
+    height: 60vh; /* Altura total da viewport */
 }
+
+.grid-item {
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+}
+
+/* Imagem principal ocupando metade da tela horizontalmente e 75% da altura */
+.grid-item.img-1 {
+    grid-column: 1 / span 2; /* Ocupa as 2 primeiras colunas */
+    grid-row: 1 / span 2; /* Ocupa as 2 primeiras linhas */
+    background-color: #ff5733; /* Cor de fundo diferente para destacar */
+}
+
+/* Duas imagens menores abaixo da imagem principal */
+.grid-item.img-2 {
+    grid-column: 1; /* Primeira coluna */
+    grid-row: 3; /* Terceira linha */
+}
+
+.grid-item.img-3 {
+    grid-column: 2; /* Segunda coluna */
+    grid-row: 3; /* Terceira linha */
+}
+
+/* As outras 6 imagens preenchendo a outra metade da tela */
+.grid-item.img-4,
+.grid-item.img-5,
+.grid-item.img-6,
+.grid-item.img-7,
+.grid-item.img-8,
+.grid-item.img-9 {
+    background-color: #3498db; /* Cor de fundo para as outras imagens */
+}
+
+.grid-item.img-4 { grid-column: 3; grid-row: 1; }
+.grid-item.img-5 { grid-column: 4; grid-row: 1; }
+.grid-item.img-6 { grid-column: 3; grid-row: 2; }
+.grid-item.img-7 { grid-column: 4; grid-row: 2; }
+.grid-item.img-8 { grid-column: 3; grid-row: 3; }
+.grid-item.img-9 { grid-column: 4; grid-row: 3; }

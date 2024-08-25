@@ -5,7 +5,9 @@
     </section>
 
     <nav>
-        <i class="fa fa-bars" id="mobile-toggle"></i>
+        <span class="material-symbols-outlined" id="mobile-toggle">
+            menu
+        </span>
         <ul>
             <li>Quem sou eu</li>
             <li>Serviços</li>
