@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
 
 
-    <title>Document</title>
+    <title><?= isset($args) ? $args['page-title'] : 'Title' ?></title>
 </head>
 <body>
 
